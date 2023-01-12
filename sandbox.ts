@@ -1,11 +1,4 @@
-const character = 'luigi';
+let character = 'mario';
+let age = 30
+let isBlackBelt = false
 
-console.log(character);
-
-const inputs = document.querySelectorAll('input');
-
-inputs.forEach(input => {
-  console.log(input);
-});
-
-inputs.forEach(input => console.log(input))
