@@ -1,8 +1,9 @@
-var character = 'mario';
-var age = 30;
-var isBlackBelt = false;
+"use strict";
+let character = 'mario';
+let age = 30;
+let isBlackBelt = false;
 //safe typing functions
-var circ = function (diameter) {
+const circ = (diameter) => {
     return diameter * Math.PI;
 };
 console.log(circ(Math.PI * 3));
