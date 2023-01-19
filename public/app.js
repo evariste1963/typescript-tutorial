@@ -52,8 +52,9 @@ const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    console.log(type.value);
     let doc;
-    if (type.value === 'Invoice') {
+    if (type.value === 'invoice') {
         doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
     }
     else
