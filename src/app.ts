@@ -82,15 +82,18 @@ const amount = document.querySelector('#amount') as HTMLInputElement;
 const ul = document.querySelector('ul')!;
 const list = new ListTemplate(ul)
 
+
 form.addEventListener('submit', (e:Event) => {
     e.preventDefault()
 
     //Tuples --> fixed position/type array
     let values:[string, string, number]
-values = [tofrom.value, details.value, amount.valueAsNumber]
+    values = [tofrom.value, details.value, amount.valueAsNumber]
+    
     let doc: HasFormatter;
-    if(type.value === 'invoice'){
-        doc = new Invoice(...values)
+    
+    if(type.value === 'invoice') {
+       doc = new Invoice(...values)
     } else doc = new Payment(...values)
    
     list.render(doc, type.value, 'start')
