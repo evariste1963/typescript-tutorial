@@ -85,10 +85,13 @@ const list = new ListTemplate(ul)
 form.addEventListener('submit', (e:Event) => {
     e.preventDefault()
 
+    //Tuples --> fixed position/type array
+    let values:[string, string, number]
+values = [tofrom.value, details.value, amount.valueAsNumber]
     let doc: HasFormatter;
-    if(type.value === 'Invoice'){
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
-    } else doc = new Payment(tofrom.value, details.value, amount.valueAsNumber)
+    if(type.value === 'invoice'){
+        doc = new Invoice(...values)
+    } else doc = new Payment(...values)
    
     list.render(doc, type.value, 'start')
 })

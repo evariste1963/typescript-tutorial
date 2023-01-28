@@ -52,11 +52,14 @@ const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    //Tuples --> fixed position/type array
+    let values;
+    values = [tofrom.value, details.value, amount.valueAsNumber];
     let doc;
-    if (type.value === 'Invoice') {
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    if (type.value === 'invoice') {
+        doc = new Invoice(...values);
     }
     else
-        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
     list.render(doc, type.value, 'start');
 });
